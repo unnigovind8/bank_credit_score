@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="/static/images/favicon.png" type="">
+
+  <title> ADX Banking Support </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="/static/css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="/static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="/static/css/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="/static/images/hero-bg.png" alt="">
+      </div>
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="/">
+            <span>
+              ADX
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item ">
+                <a class="nav-link" href="/">Home </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about"> About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
+              </li>
+              <form class="form-inline">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+
+  <!-- service section -->
+
+  <section class="service_section layout_padding">
+    <div class="service_container">
+      <div class="container ">
+        <!-- Credit Result -->       
+            <style>
+              
+              .divcol{
+                    float: right;
+                    width:20.20%;
+                    padding:5px
+                    }
+              h1 {
+                text-align: center; /* Center align the text */
+                font-family: Arial, sans-serif; /* Specify font family */
+                color: #333; /* Specify text color */
+              }
+            </style>
+            <h1><b>Credit Score  <span style="color:red" >Results</span></b></h1>
+            <br>
+            <div class="container" id="resultContainer" style="display: none;">
+                <div class="row">
+                 <div class="col-md-6">
+                   <div class="detail-box">
+                    <table cellpadding="5" cellspacing="5">
+                     <tr><td><p>Annual_Income :  </td>
+                                                 <td><span id="income"></span></p></td></tr>
+
+                     <tr><td><p>Num_Bank_Accounts : </td>
+                                                    <td> <span id="bnkacc"></span></p></td></tr>
+
+                     <tr><td><p>Num_Credit_Card :  </td>
+                                                    <td><span id="creditcard"></span></p></td></tr>
+
+                     <tr><td><p>Num_of_Delayed_Payment : </td>
+                                                    <td>  <span id="delaypay"></span></p></td></tr>
+
+                     <tr><td><p>Num_Credit_Inquiries : </td>
+                                                       <td> <span id="creditinq"></span></p></td></tr>
+
+                     <tr><td><p>Credit_Mix : </td>
+                                                  <td> <span id="cmix"></span></p></td></tr>
+
+                     <tr><td><p>Outstanding_Debt : </td> 
+                                                   <td><span id="odebt"></span></p></td></tr>
+
+                     <tr><td><p>Credit_Utilization_Ratio : </td> 
+                                                      <td><span id="curatio"></span></p></td></tr>
+
+                     <tr><td><p>Credit_History_Age :  </td>
+                                                    <td><span id="chage"></span></p></td></tr>
+                                                    
+                    <tr><td><p>Payment_of_Min_Amount : </td> 
+                                                        <td><span id="paymin"></span></p></td></tr>
+                      <tr><td><p>Credit Score: <span id="result"></span></p>
+                    </table>
+                   </div>
+                 </div>
+                </div>
+              </div>
+              
+                <script>
+                 var res ="{{result}}";
+            
+                // Check if 'res' has a value
+                  if (res !== "") {
+                    document.getElementById("income").innerText = "{{income}}";
+                    document.getElementById("bnkacc").innerText = "{{bnkacc}}";
+                    document.getElementById("creditcard").innerText = "{{creditcard}}";
+                    document.getElementById("delaypay").innerText = "{{delaypay}}";
+                    document.getElementById("creditinq").innerText = "{{creditinq}}";
+                    document.getElementById("cmix").innerText = "{{cmix}}";
+                    document.getElementById("odebt").innerText = "{{odebt}}";
+                    document.getElementById("curatio").innerText = "{{curatio}}";
+                    document.getElementById("chage").innerText = "{{chage}}";
+                    document.getElementById("paymin").innerText = "{{paymin}}";
+                    //document.getElementById("result").innerText = res;
+            
+                    // Show the container
+                    document.getElementById("resultContainer").style.display = "block";
+                  }
+
+                </script>
+                <div class="col-md-6">
+
+                  <div class="divcol">
+                    
+
+                    <!--Good-->
+                   {% if result == [0] %}
+
+                   <head>
+                   <meta charset="UTF-8">
+                   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                   <title>Good</title>
+                   <style>
+                     .win-box {
+                        width: 200px;
+                        height: 100px;
+                        background-color: green;
+                        color: white;
+                        text-align: center;
+                        line-height: 100px; /* Center the text vertically */
+                        font-size: 24px;
+                        
+                      }
+                   </style>
+                   </head>
+                   <body>
+                    <div class="win-box">
+                        Good
+                    </div><br><br>
+                   </body>
+
+                   <!--Poor-->
+
+                   {% elif result == [1] %}
+                   <head>
+                   <meta charset="UTF-8">
+                   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                   <title>Poor</title>
+                   <style>
+                    .lose-box {
+                        width: 200px;
+                        height: 100px;
+                        background-color: rgb(255, 2, 2);
+                        color: white;
+                        text-align: center;
+                        line-height: 100px; /* Center the text vertically */
+                        font-size: 24px;
+                       
+                     }
+                   </style>
+                   </head>
+                   <body>
+                    <div class="lose-box">
+                       Poor
+                    </div><br><br>
+                   </body>
+
+                   <!--Standard-->
+
+                   {% elif result == [2] %}
+
+                   <head>
+                   <meta charset="UTF-8">
+                   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                   <title>Standard</title>
+                   <style>
+                    .std-box {
+                        width: 200px;
+                        height: 100px;
+                        background-color: rgb(245, 182, 9);
+                        color: white;
+                        text-align: center;
+                        line-height: 100px; /* Center the text vertically */
+                        font-size: 24px;
+                       
+                     }
+                   </style>
+                   </head>
+                   <body>
+                    <div class="std-box">
+                       Standard
+                    </div><br><br>
+                   </body>
+                   {% else %}
+                   <p></p>
+                   {% endif %}
+                   </div>
+                   
+                </div>
+                <!--end Credit Result -->
+        </div>
+      </div>
+   </section>
+
+  <!-- end service section -->
+
+  <!-- info section -->
+  <br><br>
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +91 8500850085
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  adxbank@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="info_social">
+            <a href="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <div class="col-md-6 col-lg-3 info_col ">
+          <h4>
+            Subscribe
+          </h4>
+          <form action="#">
+            <input type="text" placeholder="Enter email" />
+            <button type="submit">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>     
+
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <section class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved
+        
+      </p>
+    </div>
+  </section>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script type="text/javascript" src="/static/js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="/static/js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+
+</body>
+
+</html>
